@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next"
 import { Atkinson_Hyperlegible_Next } from "next/font/google";
 import "./globals.css";
 
@@ -19,11 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-br"
-      className={`h-full antialiased`}
-    >
-      <body className={`${atkinson.variable} min-h-full flex flex-col`}>{children}</body>
-    </html>
+    <>
+      <html
+        lang="pt-br"
+        className={`h-full antialiased`}
+      >
+        <body className={`${atkinson.variable} min-h-full flex flex-col`}>{children}</body>
+      </html>
+      <Analytics />
+    </>
   );
 }

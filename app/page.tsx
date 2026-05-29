@@ -2,11 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-/* ─── Design tokens (usados apenas inline para as cores dinâmicas dos pastels) ── */
 const ACCENTS = ["#FFF0B6", "#B9E0FD", "#CDFCD0", "#FFA3CC", "#CDC8FE", "#FFB485"];
 const LGPD_ACCENTS = ["#B9E0FD", "#CDFCD0", "#FFF0B6", "#FFA3CC", "#CDC8FE", "#FFB485"];
 
-/* ─── Dados ─────────────────────────────────────────────────── */
 const FEATURES = [
   { icon: "💸", title: "Gastos do Gabinete", desc: "Acompanhe a CEAP de cada deputado com detalhamento por categoria e fornecedor.", tag: "Portal da Câmara" },
   { icon: "🎤", title: "Discursos no Plenário", desc: "Acesse pronunciamentos feitos no plenário, com busca por palavras-chave e linha do tempo.", tag: "API Câmara" },
@@ -55,7 +53,6 @@ export default function Home() {
  
   return (
     <>
-      {/* ── NAV ── */}
       <nav className={scrolled ? "scrolled" : ""}>
         <a href="#" className="nav-logo">
           <span className="hero-tag-dot" />
@@ -65,12 +62,10 @@ export default function Home() {
           <li><a href="#funcionalidades">Funcionalidades</a></li>
           <li><a href="#dados">Dados</a></li>
           <li><a href="#lgpd">Privacidade</a></li>
-          <li><a href="#sobre">Sobre</a></li>
         </ul>
         <a href="#download" className="btn btn-dark btn-sm">Baixar app →</a>
       </nav>
  
-      {/* ── HERO ── */}
       <section className="hero">
         <div className="hero-dots" />
         <div className="hero-glow" />
@@ -100,19 +95,6 @@ export default function Home() {
         </div>
       </section>
  
-      {/* ── TICKER ── */}
-      <div className="ticker-wrap">
-        <div className="ticker-inner">
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span key={i} className="ticker-item">
-              {item}
-              <span className="ticker-sep" />
-            </span>
-          ))}
-        </div>
-      </div>
- 
-      {/* ── STATS ── */}
       <div className="stats-section">
         <div className="stats-grid">
           {STATS.map((s, i) => (
@@ -125,7 +107,6 @@ export default function Home() {
         </div>
       </div>
  
-      {/* ── FUNCIONALIDADES ── */}
       <section id="funcionalidades" className="features-section">
         <div className="container">
           <div className="section-header">
@@ -152,7 +133,6 @@ export default function Home() {
  
       <div className="divider" />
  
-      {/* ── DADOS ── */}
       <section id="dados" className="data-section">
         <div className="container">
           <div className="section-header">
@@ -182,6 +162,15 @@ export default function Home() {
               ))}
             </tbody>
           </table>
+
+          <div className="data-callout">
+            Todas as informações são coletadas automaticamente de fontes primárias diariamente.
+            Erros ou divergências em relação aos portais oficiais podem ser reportados pelo app ou por 
+            <a href="mailto:contato@radarparlamentar.app" className="email-link">
+              e-mail
+            </a>
+            .
+          </div>
         </div>
       </section>
  
@@ -240,7 +229,6 @@ export default function Home() {
         </div>
       </section>
  
-      {/* ── DOWNLOAD ── */}
       <section id="download" className="download-section">
         <div className="container">
           <h2>Comece a fiscalizar<br />agora mesmo</h2>
@@ -264,7 +252,6 @@ export default function Home() {
         </div>
       </section>
  
-      {/* ── FOOTER ── */}
       <footer>
         <div className="footer-inner">
           <span className="footer-copy">
@@ -272,7 +259,6 @@ export default function Home() {
           </span>
           <ul className="footer-links">
             <li><a href="#lgpd">Privacidade</a></li>
-            <li><a href="#">Política de uso</a></li>
             <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             <li><a href="mailto:contato@radarparlamentar.app">Contato</a></li>
           </ul>

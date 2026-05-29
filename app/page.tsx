@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const ACCENTS = ["#FFF0B6", "#B9E0FD", "#CDFCD0", "#FFA3CC", "#CDC8FE", "#FFB485"];
 const LGPD_ACCENTS = ["#B9E0FD", "#CDFCD0", "#FFF0B6", "#FFA3CC", "#CDC8FE", "#FFB485"];
@@ -32,13 +33,13 @@ const LGPD_CARDS = [
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [isTranslated, setIsTranslated] = useState(true);
- 
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
- 
+
   return (
     <>
       <nav className={scrolled ? "scrolled" : ""}>
@@ -50,9 +51,8 @@ export default function Home() {
           <li><a href="#dados">Dados</a></li>
           <li><a href="#lgpd">Privacidade</a></li>
         </ul>
-        <a href="#download" className={`btn ${scrolled ? "btn-dark" : "btn-white"}`}>Baixar app</a>
       </nav>
- 
+
       <section className="hero">
         <div className="hero-dots" />
         <div className="hero-glow" />
@@ -64,20 +64,15 @@ export default function Home() {
           <h1 className="fade-up delay-1">
             Fiscalize seus<br />
             <span className="accent-yellow">representantes</span><br />
-            no <span className="accent-green">Congresso</span>
+            na <span className="accent-green">Câmara</span>
           </h1>
           <p className="hero-sub fade-up delay-2">
             Gastos, discursos, votações, presença e emendas de todos os 513
             deputados federais — direto no seu celular, com dados oficiais.
           </p>
           <div className="hero-ctas fade-up delay-3">
-            <a href="#download" className="btn btn-white">Baixar gratuitamente</a>
+            <a href="#download" className="btn btn-white">Baixar app</a>
             <a href="#funcionalidades" className="btn btn-white-outline">Ver funcionalidades</a>
-          </div>
-          <div className="hero-chips">
-            {["513 deputados", "Dados oficiais", "Gratuito", "Atualização diária", "LGPD"].map((c, i) => (
-              <span key={i} className="hero-chip">{c}</span>
-            ))}
           </div>
         </div>
       </section>
@@ -88,20 +83,20 @@ export default function Home() {
             <h2 className="section-h2">Traduzimos a política para você.</h2>
             <p>Deixe a linguagem complicada de lado. Entenda exatamente o que está acontecendo no Congresso.</p>
           </div>
-          
+
           <div className="translation-card">
             <div className="translation-toggle-wrap">
               <span className={`translation-label ${!isTranslated ? "active" : "inactive"}`} id="label-jargon">
                 Politiquês
               </span>
               <label className="translation-switch">
-                <input 
-                  type="checkbox" 
-                  role="switch" 
-                  aria-checked={isTranslated} 
-                  checked={isTranslated} 
-                  onChange={(e) => setIsTranslated(e.target.checked)} 
-                  id="translation-toggle" 
+                <input
+                  type="checkbox"
+                  role="switch"
+                  aria-checked={isTranslated}
+                  checked={isTranslated}
+                  onChange={(e) => setIsTranslated(e.target.checked)}
+                  id="translation-toggle"
                 />
                 <div className="translation-slider"></div>
               </label>
@@ -121,7 +116,7 @@ export default function Home() {
           </div>
         </div>
       </section>
- 
+
       <section id="funcionalidades" className="features-section">
         <div className="container">
           <div className="section-header">
@@ -145,9 +140,9 @@ export default function Home() {
           </div>
         </div>
       </section>
- 
+
       <div className="divider" />
- 
+
       <section id="dados" className="data-section">
         <div className="container">
           <div className="section-header">
@@ -165,12 +160,11 @@ export default function Home() {
                     <div className="data-url">{s.url}</div>
                   </td>
                   <td style={{ paddingLeft: "2rem", paddingTop: "2rem" }}>
-                    <span className={`data-pill ${
-                      s.badge === "open" ? "pill-open" :
-                      s.badge === "gov"  ? "pill-gov" : "pill-intern"
-                    }`}>
+                    <span className={`data-pill ${s.badge === "open" ? "pill-open" :
+                      s.badge === "gov" ? "pill-gov" : "pill-intern"
+                      }`}>
                       {s.badge === "open" ? "Dados abertos" :
-                       s.badge === "gov"  ? "Gov. Federal"  : "Interno"}
+                        s.badge === "gov" ? "Gov. Federal" : "Interno"}
                     </span>
                   </td>
                 </tr>
@@ -180,7 +174,7 @@ export default function Home() {
 
           <div className="data-callout">
             Todas as informações são coletadas automaticamente de fontes primárias diariamente.
-            Erros ou divergências em relação aos portais oficiais podem ser reportados pelo app ou por 
+            Erros ou divergências em relação aos portais oficiais podem ser reportados pelo app ou por
             <a href="mailto:contato@radarparlamentar.app" className="email-link">
               e-mail
             </a>
@@ -188,7 +182,7 @@ export default function Home() {
           </div>
         </div>
       </section>
- 
+
       {/* ── LGPD ── */}
       <section id="lgpd" className="lgpd-section">
         <div className="container">
@@ -213,7 +207,7 @@ export default function Home() {
           </div>
         </div>
       </section>
- 
+
       <section id="download" className="download-section">
         <div className="container">
           <h2>Comece a fiscalizar<br />agora mesmo</h2>
@@ -236,14 +230,18 @@ export default function Home() {
           </div>
         </div>
       </section>
- 
+
       <footer>
         <div className="footer-inner">
           <span className="footer-copy">
             © {new Date().getFullYear()} Radar Parlamentar · Dados: Câmara dos Deputados
           </span>
           <ul className="footer-links">
-            <li><a href="#lgpd">Privacidade</a></li>
+            <li>
+              <Link href="/privacidade" className="">
+                Política de privacidade
+              </Link>
+            </li>
             <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             <li><a href="mailto:contato@radarparlamentar.app">Contato</a></li>
           </ul>
@@ -251,5 +249,4 @@ export default function Home() {
       </footer>
     </>
   );
-
 }

@@ -20,14 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <html
-        lang="pt-br"
-        className={`h-full antialiased`}
-      >
-        <body className={`${atkinson.variable} min-h-full flex flex-col`}>{children}</body>
-      </html>
+    <html
+      lang="pt-br"
+      className={`h-full antialiased`}
+    >
+      <body className={`${atkinson.variable} min-h-full flex flex-col`}>{children}</body>
       <Analytics />
-    </>
+    </html>
   );
 }

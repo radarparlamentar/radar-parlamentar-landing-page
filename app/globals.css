@@ -910,3 +910,171 @@ footer {
     padding: 2.5rem 1.25rem;
   }
 }
+
+.privacy-page {
+  min-height: 100vh;
+  background: #F9F7F8;
+}
+ 
+.privacy-main {
+  padding: 3rem 2rem 6rem;
+  display: flex;
+  justify-content: center;
+}
+ 
+.privacy-content {
+  width: 100%;
+  max-width: 720px;
+}
+ 
+/* ── Link de voltar ── */
+.privacy-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #7a7676;
+  text-decoration: none;
+  margin-bottom: 3rem;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+ 
+.privacy-back-link:hover {
+  color: #020001;
+}
+ 
+/* ── Header do documento ── */
+.privacy-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #E8E4E5;
+  flex-wrap: wrap;
+}
+ 
+.privacy-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #020001;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+ 
+.privacy-updated {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(2, 0, 1, 0.7);
+  letter-spacing: 0.02em;
+}
+ 
+/* ── Prosa legal ── */
+.legal-prose {
+  color: #3a3838;
+  font-size: 16px;
+  line-height: 1.8;
+}
+ 
+.legal-prose p {
+  margin-bottom: 1.2rem;
+}
+ 
+.legal-prose h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #020001;
+  letter-spacing: -0.02em;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-top: 3rem;
+  border-top: 1px solid #E8E4E5;
+  scroll-margin-top: 2rem;
+}
+ 
+.legal-prose h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+ 
+.legal-prose h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #020001;
+  letter-spacing: -0.01em;
+  margin-top: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+ 
+.legal-prose ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+ 
+.legal-prose ul li {
+  padding: 12px 16px 12px 42px;
+  background: #FFFFFF;
+  border: 1px solid #E8E4E5;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.65;
+  position: relative;
+}
+ 
+.legal-prose ul li::before {
+  content: '—';
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  color: #b0acac;
+  font-weight: 700;
+}
+ 
+.legal-prose strong {
+  font-weight: 700;
+  color: #020001;
+}
+ 
+.legal-prose em {
+  font-style: italic;
+}
+ 
+/* ── Rodapé da página ── */
+.privacy-bottom-nav {
+  display: flex;
+  gap: 1rem;
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #E8E4E5;
+  flex-wrap: wrap;
+}
+ 
+/* ── Print ── */
+@media print {
+  .privacy-back-link  { display: none; }
+  .privacy-bottom-nav { display: none; }
+  .privacy-header button { display: none; }
+}
+ 
+/* ── Responsivo (privacidade) ── */
+@media (max-width: 640px) {
+  .privacy-main {
+    padding: 2rem 1.25rem 4rem;
+  }
+ 
+  .privacy-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+}

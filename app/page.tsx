@@ -1,5 +1,4 @@
 "use client"
-
 import { useEffect, useState } from "react";
 
 const ACCENTS = ["#FFF0B6", "#B9E0FD", "#CDFCD0", "#FFA3CC", "#CDC8FE", "#FFB485"];

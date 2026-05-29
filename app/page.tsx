@@ -8,9 +8,9 @@ const FEATURES = [
   { icon: "💸", title: "Gastos do Gabinete", desc: "Acompanhe a CEAP de cada deputado com detalhamento por categoria e fornecedor.", tag: "Portal da Câmara" },
   { icon: "🎤", title: "Discursos no Plenário", desc: "Acesse pronunciamentos feitos no plenário, com busca por palavras-chave e linha do tempo.", tag: "API Câmara" },
   { icon: "📋", title: "Proposições e Votações", desc: "Veja os projetos propostos e como cada deputado votou nas principais matérias.", tag: "API Câmara" },
-  { icon: "📅", title: "Presença nas Sessões", desc: "Mapa de frequência com comparativo relativo aos pares e histórico de presenças.", tag: "API Câmara" },
   { icon: "🏗️", title: "Emendas Parlamentares", desc: "Valores destinados e executados por parlamentar, UF e função orçamentária.", tag: "Portal Transparência" },
   { icon: "⭐", title: "Favoritos & Alertas", desc: "Siga deputados e receba notificações push sobre novos gastos, discursos e votações.", tag: "Em breve" },
+  { icon: "📅", title: "Materiais educativos", desc: "Mapa de frequência com comparativo relativo aos pares e histórico de presenças.", tag: "API Câmara" },
 ];
 
 const DATASOURCES = [
@@ -28,21 +28,10 @@ const LGPD_CARDS = [
   { title: "Base legal", text: "Tratamento baseado no legítimo interesse e no interesse público na transparência do mandato (LGPD, art. 7º, II e IX)." },
 ];
 
-const TICKER_ITEMS = [
-  "513 deputados federais", "Dados atualizados diariamente", "API Câmara",
-  "Portal Transparência", "Código aberto", "Gratuito", "LGPD em conformidade", "Sem anúncios",
-];
-
-const STATS = [
-  { n: "513", label: "Deputados monitorados", sub: "57ª Legislatura" },
-  { n: "Diário", label: "Frequência de atualização", sub: "Via GitHub Actions" },
-  { n: "100%", label: "Dados oficiais", sub: "Câmara + Portal Transparência" },
-  { n: "0", label: "Anúncios", sub: "Sem rastreamento" },
-];
-
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [isTranslated, setIsTranslated] = useState(true);
  
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -54,7 +43,6 @@ export default function Home() {
     <>
       <nav className={scrolled ? "scrolled" : ""}>
         <a href="#" className="nav-logo">
-          <span className="hero-tag-dot" />
           Radar<span style={{ fontWeight: 300 }}>Parlamentar</span>
         </a>
         <ul className="nav-links">
@@ -62,7 +50,7 @@ export default function Home() {
           <li><a href="#dados">Dados</a></li>
           <li><a href="#lgpd">Privacidade</a></li>
         </ul>
-        <a href="#download" className="btn btn-dark btn-sm">Baixar app →</a>
+        <a href="#download" className={`btn ${scrolled ? "btn-dark" : "btn-white"}`}>Baixar app</a>
       </nav>
  
       <section className="hero">
@@ -83,28 +71,56 @@ export default function Home() {
             deputados federais — direto no seu celular, com dados oficiais.
           </p>
           <div className="hero-ctas fade-up delay-3">
-            <a href="#download" className="btn btn-white">Baixar gratuitamente →</a>
+            <a href="#download" className="btn btn-white">Baixar gratuitamente</a>
             <a href="#funcionalidades" className="btn btn-white-outline">Ver funcionalidades</a>
           </div>
           <div className="hero-chips">
-            {["513 deputados", "Dados oficiais", "Gratuito", "Sem anúncios", "Open source", "LGPD"].map((c, i) => (
+            {["513 deputados", "Dados oficiais", "Gratuito", "Atualização diária", "LGPD"].map((c, i) => (
               <span key={i} className="hero-chip">{c}</span>
             ))}
           </div>
         </div>
       </section>
- 
-      <div className="stats-section">
-        <div className="stats-grid">
-          {STATS.map((s, i) => (
-            <div key={i} className="stat-item">
-              <div className="stat-number">{s.n}</div>
-              <div className="stat-label">{s.label}</div>
-              <div className="stat-sub">{s.sub}</div>
+
+      <section className="translation-section" id="proposito">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-h2">Traduzimos a política para você.</h2>
+            <p>Deixe a linguagem complicada de lado. Entenda exatamente o que está acontecendo no Congresso.</p>
+          </div>
+          
+          <div className="translation-card">
+            <div className="translation-toggle-wrap">
+              <span className={`translation-label ${!isTranslated ? "active" : "inactive"}`} id="label-jargon">
+                Politiquês
+              </span>
+              <label className="translation-switch">
+                <input 
+                  type="checkbox" 
+                  role="switch" 
+                  aria-checked={isTranslated} 
+                  checked={isTranslated} 
+                  onChange={(e) => setIsTranslated(e.target.checked)} 
+                  id="translation-toggle" 
+                />
+                <div className="translation-slider"></div>
+              </label>
+              <span className={`translation-label ${isTranslated ? "active" : "inactive"}`} id="label-translated">
+                Português Claro
+              </span>
             </div>
-          ))}
+
+            <div className="translation-content">
+              <div className={`translation-text jargon ${!isTranslated ? "active" : "inactive-up"}`} id="text-jargon">
+                "Aprovado o requerimento de urgência para o PL 123/24."
+              </div>
+              <div className={`translation-text clear ${isTranslated ? "active" : "inactive-down"}`} id="text-translated">
+                "O projeto sobre <span className="highlight-yellow">Saúde Pública</span> vai ser votado mais rápido."
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
  
       <section id="funcionalidades" className="features-section">
         <div className="container">
@@ -194,36 +210,6 @@ export default function Home() {
             Os dados sobre atuação parlamentar são de interesse público. O Radar Parlamentar
             apenas consolida e apresenta, de forma acessível, informações que o próprio Congresso
             publica obrigatoriamente por lei. Não fazemos julgamentos de valor sobre os parlamentares.
-          </div>
-        </div>
-      </section>
- 
-      {/* ── SOBRE ── */}
-      <section id="sobre" className="manifesto-section">
-        <div className="container">
-          <div className="manifesto">
-            <p className="eyebrow" style={{ textAlign: "center" }}>Sobre o projeto</p>
-            <h2 className="section-h2">Democracia precisa de<br />cidadãos informados</h2>
-            <p>
-              O Radar Parlamentar nasceu da crença de que acompanhar os representantes eleitos
-              não deveria exigir horas de pesquisa em portais complexos.
-            </p>
-            <p>
-              Construído com dados abertos oficiais e código aberto, o app é um projeto de
-              civic tech independente — sem financiamento de partidos, empresas ou governos.
-            </p>
-            <p>
-              Todas as informações são coletadas automaticamente de fontes primárias diariamente.
-              Erros ou divergências em relação aos portais oficiais podem ser reportados.
-            </p>
-            <div style={{ marginTop: "2.5rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="https://github.com" className="btn btn-dark" target="_blank" rel="noopener noreferrer">
-                Ver no GitHub →
-              </a>
-              <a href="mailto:contato@radarparlamentar.app" className="btn btn-outline">
-                Contato
-              </a>
-            </div>
           </div>
         </div>
       </section>

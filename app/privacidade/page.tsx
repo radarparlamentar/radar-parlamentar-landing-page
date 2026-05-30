@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 export const metadata = {
@@ -22,12 +20,6 @@ export default function PrivacidadePage() {
               <h1 className="privacy-title">Política de Privacidade</h1>
               <p className="privacy-updated">Última atualização: 15 de outubro de 2023</p>
             </div>
-            <button
-              className="btn btn-outline btn-sm"
-              onClick={() => window.print()}
-            >
-              Imprimir documento
-            </button>
           </header>
  
           <article className="legal-prose">
@@ -83,12 +75,6 @@ export default function PrivacidadePage() {
             <p>Responderemos em até 15 dias úteis, conforme prazo estabelecido pela LGPD.</p>
  
           </article>
- 
-          <div className="privacy-bottom-nav">
-            <button className="btn btn-outline" onClick={() => window.print()}>
-              Imprimir documento
-            </button>
-          </div>
  
         </div>
       </main>

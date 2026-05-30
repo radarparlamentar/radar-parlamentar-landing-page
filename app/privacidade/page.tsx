@@ -2,18 +2,21 @@
 
 import Link from "next/link";
 
+export const metadata = {
+  title: "Privacidade",
+  description: "Política de privacidade e conformidade com a LGPD do Radar Parlamentar.",
+}
+
 export default function PrivacidadePage() {
   return (
     <div className="privacy-page">
       <main className="privacy-main">
         <div className="privacy-content">
  
-          {/* ── Link de voltar ── */}
           <Link href="/" className="privacy-back-link">
             ← Voltar ao início
           </Link>
- 
-          {/* ── Header ── */}
+
           <header className="privacy-header">
             <div>
               <h1 className="privacy-title">Política de Privacidade</h1>
@@ -27,7 +30,6 @@ export default function PrivacidadePage() {
             </button>
           </header>
  
-          {/* ── Documento ── */}
           <article className="legal-prose">
  
             <p>O <strong>Radar Parlamentar</strong> valoriza a privacidade dos seus usuários e criou esta Política de Privacidade para demonstrar seu compromisso em proteger sua privacidade e seus dados pessoais, nos termos da Lei Geral de Proteção de Dados e demais leis sobre o tema.</p>
@@ -76,13 +78,12 @@ export default function PrivacidadePage() {
             <h2 id="contato">6. Contato</h2>
             <p>Se você tiver alguma dúvida sobre esta Política de Privacidade ou sobre nossas práticas de tratamento de dados, entre em contato com nosso Encarregado de Proteção de Dados (DPO):</p>
             <ul>
-              <li><strong>E-mail:</strong> privacidade@radarparlamentar.com.br</li>
+              <li><strong>E-mail:</strong> contato@radarparlamentar.com</li>
             </ul>
             <p>Responderemos em até 15 dias úteis, conforme prazo estabelecido pela LGPD.</p>
  
           </article>
  
-          {/* ── Rodapé ── */}
           <div className="privacy-bottom-nav">
             <button className="btn btn-outline" onClick={() => window.print()}>
               Imprimir documento

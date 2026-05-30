@@ -242,7 +242,7 @@ nav.scrolled .nav-links a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 8rem 2rem 0;
+  padding: 0rem 2rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -317,7 +317,7 @@ nav.scrolled .nav-links a {
 
 .hero-sub {
   font-size: clamp(1rem, 1.6vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 520px;
   line-height: 1.75;
   margin-bottom: 2.8rem;
@@ -348,48 +348,12 @@ nav.scrolled .nav-links a {
   letter-spacing: 0.04em;
 }
 
-/* ── Ticker ── */
-.ticker-wrap {
-  background: #FFFFFF;
-  border-top: 1px solid #E8E4E5;
-  border-bottom: 1px solid #E8E4E5;
-  overflow: hidden;
-  padding: 14px 0;
-  white-space: nowrap;
-}
-
-.ticker-inner {
-  display: inline-flex;
-  gap: 3rem;
-  animation: ticker 30s linear infinite;
-}
-
-.ticker-item {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #b0acac;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.ticker-sep {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #E8E4E5;
-  flex-shrink: 0;
-}
-
 /* ── Translation ── */
 .translation-section {
   background: #FFFFFF;
 }
 
 .translation-section .section-header {
-  text-align: center;
   margin-bottom: 3.5rem;
 }
 
@@ -398,19 +362,16 @@ nav.scrolled .nav-links a {
   color: rgba(2, 0, 1, 0.7);
   margin-top: 1.2rem;
   max-width: 620px;
-  margin-left: auto;
-  margin-right: auto;
   line-height: 1.6;
 }
 
 .translation-card {
-  background: #fef8f8;
-  border: 1px solid #E8E4E5;
+  background: #F9F7F8;
+  border: 2px solid #E8E4E5;
   border-radius: 20px;
   padding: 4rem 2rem;
   width: 100%;
   max-width: 760px;
-  margin: 0 auto;
   box-shadow: 0 12px 32px rgba(2, 0, 1, 0.03);
   position: relative;
   overflow: hidden;
@@ -425,7 +386,7 @@ nav.scrolled .nav-links a {
 }
 
 .translation-label {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   transition: color 0.2s;
 }
@@ -435,7 +396,7 @@ nav.scrolled .nav-links a {
 }
 
 .translation-label.inactive {
-  color: #b0acac;
+  color: rgba(2, 0, 1, 0.7);
   font-weight: 400;
 }
 
@@ -445,8 +406,8 @@ nav.scrolled .nav-links a {
   align-items: center;
   width: 64px;
   height: 32px;
-  background: #fef8f8;
-  border: 1px solid #E8E4E5;
+  background: #FFFFFF;
+  border: 2px solid #020001;
   border-radius: 9999px;
   cursor: pointer;
   padding: 3px;
@@ -807,17 +768,18 @@ nav.scrolled .nav-links a {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
   font-family: var(--font-atkinson), sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   padding: 16px 28px;
   border-radius: 9999px;
   text-decoration: none;
   transition: all 0.2s;
   letter-spacing: -0.01em;
+  text-align: left;
 }
 
 .store-btn:hover {
@@ -828,23 +790,23 @@ nav.scrolled .nav-links a {
 
 .store-btn-sub {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1px;
 }
 
 .store-icon {
-  font-size: 22px;
+  font-size: 40px;
 }
 
 /* ── Footer ── */
 footer {
   background: #020001;
   padding: 2.5rem 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .footer-inner {

@@ -896,7 +896,7 @@ footer {
   gap: 6px;
   font-size: 13px;
   font-weight: 700;
-  color: #7a7676;
+  color: rgba(2, 0, 1, 0.7);
   text-decoration: none;
   margin-bottom: 3rem;
   transition: color 0.2s;
